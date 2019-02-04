@@ -12,20 +12,24 @@
 		D74C92422208AB79001FBAB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74C92402208AB79001FBAB5 /* Main.storyboard */; };
 		D74C92442208AB7C001FBAB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74C92432208AB7C001FBAB5 /* Assets.xcassets */; };
 		D74C92472208AB7C001FBAB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74C92452208AB7C001FBAB5 /* LaunchScreen.storyboard */; };
-		D74C924F2208B59A001FBAB5 /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C924E2208B59A001FBAB5 /* WSPopupViewController.swift */; };
-		D74C92512208B649001FBAB5 /* SignInExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92502208B649001FBAB5 /* SignInExampleView.swift */; };
+		D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92502208B649001FBAB5 /* ExampleSignInView.swift */; };
+		D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */; };
+		D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */; };
+		D74C92592208C5DC001FBAB5 /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92582208C5DC001FBAB5 /* WSPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D74C92392208AB79001FBAB5 /* WSPopup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPopup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74C92392208AB79001FBAB5 /* WSPopupExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPopupExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74C923C2208AB79001FBAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74C923E2208AB79001FBAB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D74C92412208AB79001FBAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D74C92432208AB7C001FBAB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74C92462208AB7C001FBAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74C92482208AB7C001FBAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D74C924E2208B59A001FBAB5 /* WSPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WSPopupViewController.swift; path = Source/WSPopupViewController.swift; sourceTree = SOURCE_ROOT; };
-		D74C92502208B649001FBAB5 /* SignInExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInExampleView.swift; sourceTree = "<group>"; };
+		D74C92502208B649001FBAB5 /* ExampleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSignInView.swift; sourceTree = "<group>"; };
+		D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleStaticHeightView.swift; sourceTree = "<group>"; };
+		D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleIntrinsicHeightView.swift; sourceTree = "<group>"; };
+		D74C92582208C5DC001FBAB5 /* WSPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSPopupViewController.swift; path = Source/WSPopupViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				D74C923B2208AB79001FBAB5 /* Example */,
+				D74C92572208C5CB001FBAB5 /* Source */,
 				D74C923A2208AB79001FBAB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,7 +55,7 @@
 		D74C923A2208AB79001FBAB5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D74C92392208AB79001FBAB5 /* WSPopup.app */,
+				D74C92392208AB79001FBAB5 /* WSPopupExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,8 +65,9 @@
 			children = (
 				D74C923C2208AB79001FBAB5 /* AppDelegate.swift */,
 				D74C923E2208AB79001FBAB5 /* ViewController.swift */,
-				D74C92502208B649001FBAB5 /* SignInExampleView.swift */,
-				D74C924E2208B59A001FBAB5 /* WSPopupViewController.swift */,
+				D74C92502208B649001FBAB5 /* ExampleSignInView.swift */,
+				D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */,
+				D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */,
 				D74C92402208AB79001FBAB5 /* Main.storyboard */,
 				D74C92432208AB7C001FBAB5 /* Assets.xcassets */,
 				D74C92452208AB7C001FBAB5 /* LaunchScreen.storyboard */,
@@ -70,12 +76,21 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		D74C92572208C5CB001FBAB5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D74C92582208C5DC001FBAB5 /* WSPopupViewController.swift */,
+			);
+			name = Source;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D74C92382208AB79001FBAB5 /* WSPopup */ = {
+		D74C92382208AB79001FBAB5 /* WSPopupExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "WSPopup" */;
+			buildConfigurationList = D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "WSPopupExample" */;
 			buildPhases = (
 				D74C92352208AB79001FBAB5 /* Sources */,
 				D74C92362208AB79001FBAB5 /* Frameworks */,
@@ -86,9 +101,9 @@
 			);
 			dependencies = (
 			);
-			name = WSPopup;
+			name = WSPopupExample;
 			productName = PopupExample;
-			productReference = D74C92392208AB79001FBAB5 /* WSPopup.app */;
+			productReference = D74C92392208AB79001FBAB5 /* WSPopupExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D74C92382208AB79001FBAB5 /* WSPopup */,
+				D74C92382208AB79001FBAB5 /* WSPopupExample */,
 			);
 		};
 /* End PBXProject section */
@@ -164,9 +179,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D74C923F2208AB79001FBAB5 /* ViewController.swift in Sources */,
-				D74C92512208B649001FBAB5 /* SignInExampleView.swift in Sources */,
-				D74C924F2208B59A001FBAB5 /* WSPopupViewController.swift in Sources */,
+				D74C92592208C5DC001FBAB5 /* WSPopupViewController.swift in Sources */,
+				D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */,
 				D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */,
+				D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */,
+				D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +382,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "WSPopup" */ = {
+		D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "WSPopupExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D74C924C2208AB7C001FBAB5 /* Debug */,

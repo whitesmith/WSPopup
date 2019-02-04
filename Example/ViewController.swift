@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showtimeTapped(_ sender: Any) {
-        let popupViewController = WSPopupViewController(viewType: SignInExampleView.self)
+        let popupViewController = WSPopupViewController(viewType: ExampleSignInView.self)
         popupViewController.modalPresentationStyle = .overCurrentContext
         popupViewController.modalTransitionStyle = .crossDissolve
         show(popupViewController, sender: self)
