@@ -12,6 +12,8 @@
 		D74C92422208AB79001FBAB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74C92402208AB79001FBAB5 /* Main.storyboard */; };
 		D74C92442208AB7C001FBAB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74C92432208AB7C001FBAB5 /* Assets.xcassets */; };
 		D74C92472208AB7C001FBAB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74C92452208AB7C001FBAB5 /* LaunchScreen.storyboard */; };
+		D74C924F2208B59A001FBAB5 /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C924E2208B59A001FBAB5 /* WSPopupViewController.swift */; };
+		D74C92512208B649001FBAB5 /* SignInExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92502208B649001FBAB5 /* SignInExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D74C92432208AB7C001FBAB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74C92462208AB7C001FBAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74C92482208AB7C001FBAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D74C924E2208B59A001FBAB5 /* WSPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WSPopupViewController.swift; path = Source/WSPopupViewController.swift; sourceTree = SOURCE_ROOT; };
+		D74C92502208B649001FBAB5 /* SignInExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInExampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				D74C923C2208AB79001FBAB5 /* AppDelegate.swift */,
 				D74C923E2208AB79001FBAB5 /* ViewController.swift */,
+				D74C92502208B649001FBAB5 /* SignInExampleView.swift */,
+				D74C924E2208B59A001FBAB5 /* WSPopupViewController.swift */,
 				D74C92402208AB79001FBAB5 /* Main.storyboard */,
 				D74C92432208AB7C001FBAB5 /* Assets.xcassets */,
 				D74C92452208AB7C001FBAB5 /* LaunchScreen.storyboard */,
@@ -74,6 +80,7 @@
 				D74C92352208AB79001FBAB5 /* Sources */,
 				D74C92362208AB79001FBAB5 /* Frameworks */,
 				D74C92372208AB79001FBAB5 /* Resources */,
+				D74C92522208BF52001FBAB5 /* Integrate Reveal Server */,
 			);
 			buildRules = (
 			);
@@ -130,12 +137,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D74C92522208BF52001FBAB5 /* Integrate Reveal Server */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Integrate Reveal Server";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export REVEAL_SERVER_FILENAME=\"RevealServer.framework\"\n\n# Update this path to point to the location of RevealServer.framework in your project.\nexport REVEAL_SERVER_PATH=\"${SRCROOT}/Example/${REVEAL_SERVER_FILENAME}\"\n\n# If configuration is not Debug, skip this script.\n[ \"${CONFIGURATION}\" != \"Debug\" ] && exit 0\n\n# If RevealServer.framework exists at the specified path, run code signing script.\nif [ -d \"${REVEAL_SERVER_PATH}\" ]; then\n\"${REVEAL_SERVER_PATH}/Scripts/copy_and_codesign_revealserver.sh\"\nelse\necho \"Reveal Server not loaded: RevealServer.framework could not be found.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D74C92352208AB79001FBAB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D74C923F2208AB79001FBAB5 /* ViewController.swift in Sources */,
+				D74C92512208B649001FBAB5 /* SignInExampleView.swift in Sources */,
+				D74C924F2208B59A001FBAB5 /* WSPopupViewController.swift in Sources */,
 				D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +314,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Example",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-weak_framework",
+					RevealServer,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.whitesmith.PopupExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

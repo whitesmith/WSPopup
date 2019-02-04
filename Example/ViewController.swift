@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    @IBAction func showtimeTapped(_ sender: Any) {
+        let popupViewController = WSPopupViewController(viewType: SignInExampleView.self)
+        popupViewController.modalPresentationStyle = .overCurrentContext
+        popupViewController.modalTransitionStyle = .crossDissolve
+        show(popupViewController, sender: self)
     }
 
 }
