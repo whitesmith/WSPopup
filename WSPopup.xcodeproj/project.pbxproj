@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D74C92392208AB79001FBAB5 /* PopupExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopupExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74C92392208AB79001FBAB5 /* WSPopup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPopup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74C923C2208AB79001FBAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74C923E2208AB79001FBAB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D74C92412208AB79001FBAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		D74C92302208AB79001FBAB5 = {
 			isa = PBXGroup;
 			children = (
-				D74C923B2208AB79001FBAB5 /* PopupExample */,
+				D74C923B2208AB79001FBAB5 /* Example */,
 				D74C923A2208AB79001FBAB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		D74C923A2208AB79001FBAB5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D74C92392208AB79001FBAB5 /* PopupExample.app */,
+				D74C92392208AB79001FBAB5 /* WSPopup.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D74C923B2208AB79001FBAB5 /* PopupExample */ = {
+		D74C923B2208AB79001FBAB5 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				D74C923C2208AB79001FBAB5 /* AppDelegate.swift */,
@@ -61,15 +61,15 @@
 				D74C92452208AB7C001FBAB5 /* LaunchScreen.storyboard */,
 				D74C92482208AB7C001FBAB5 /* Info.plist */,
 			);
-			path = PopupExample;
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D74C92382208AB79001FBAB5 /* PopupExample */ = {
+		D74C92382208AB79001FBAB5 /* WSPopup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "PopupExample" */;
+			buildConfigurationList = D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "WSPopup" */;
 			buildPhases = (
 				D74C92352208AB79001FBAB5 /* Sources */,
 				D74C92362208AB79001FBAB5 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = PopupExample;
+			name = WSPopup;
 			productName = PopupExample;
-			productReference = D74C92392208AB79001FBAB5 /* PopupExample.app */;
+			productReference = D74C92392208AB79001FBAB5 /* WSPopup.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D74C92342208AB79001FBAB5 /* Build configuration list for PBXProject "PopupExample" */;
+			buildConfigurationList = D74C92342208AB79001FBAB5 /* Build configuration list for PBXProject "WSPopup" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D74C92382208AB79001FBAB5 /* PopupExample */,
+				D74C92382208AB79001FBAB5 /* WSPopup */,
 			);
 		};
 /* End PBXProject section */
@@ -284,7 +284,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
-				INFOPLIST_FILE = PopupExample/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
-				INFOPLIST_FILE = PopupExample/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D74C92342208AB79001FBAB5 /* Build configuration list for PBXProject "PopupExample" */ = {
+		D74C92342208AB79001FBAB5 /* Build configuration list for PBXProject "WSPopup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D74C92492208AB7C001FBAB5 /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "PopupExample" */ = {
+		D74C924B2208AB7C001FBAB5 /* Build configuration list for PBXNativeTarget "WSPopup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D74C924C2208AB7C001FBAB5 /* Debug */,
