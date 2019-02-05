@@ -10,9 +10,10 @@ import UIKit
 
 public class WSPopupViewController: WSScrollViewController {
 
-    let viewType: UIView.Type
+    private var activeField: UIView?
 
-    let popupView: UIView
+    private let viewType: UIView.Type
+    private let popupView: UIView
 
     public init(viewType: UIView.Type) {
         self.viewType = viewType
@@ -133,22 +134,42 @@ public class WSPopupViewController: WSScrollViewController {
     }
 
     @objc private func textDidBeginEditing(_ sender: Notification) {
-        print("textDidBeginEditing:", sender.object as? UITextField ?? "nil")
+        activeField = sender.object as? UITextField
+        print("textDidBeginEditing:", activeField ?? "nil")
     }
 
     @objc private func textDidEndEditing(_ sender: Notification) {
-        print("textDidEndEditing:", sender.object as? UITextField ?? "nil")
+        activeField = nil
+        print("textDidEndEditing:", activeField ?? "nil")
     }
 
     @objc private func keyboardWillShow(_ sender: Notification) {
         print("keyboardWillShow:")
-        guard let value = sender.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else { return }
-        let keyboardFrame = value.cgRectValue
-        print(keyboardFrame.height)
+        guard let activeField = activeField else {
+            return
+        }
+        guard let value = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+
+        let keyboardSize = value.cgRectValue.size
+        let contentInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+
+        // If active text field is hidden by keyboard, scroll it so it's visible
+        var rect = self.view.frame
+        rect.size.height -= keyboardSize.height
+        if !rect.contains(activeField.frame.origin) {
+            self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+        }
     }
 
     @objc private func keyboardWillHide(_ sender: Notification) {
         print("keyboardWillHide:")
+        let contentInsets: UIEdgeInsets = .zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
 
     @objc private func keyboardWillChangeFrame(_ sender: Notification) {
