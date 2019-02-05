@@ -15,7 +15,8 @@
 		D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92502208B649001FBAB5 /* ExampleSignInView.swift */; };
 		D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */; };
 		D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */; };
-		D74C92592208C5DC001FBAB5 /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92582208C5DC001FBAB5 /* WSPopupViewController.swift */; };
+		D79671332209C0540004667C /* WSScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671312209C0540004667C /* WSScrollViewController.swift */; };
+		D79671342209C0540004667C /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671322209C0540004667C /* WSPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		D74C92502208B649001FBAB5 /* ExampleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSignInView.swift; sourceTree = "<group>"; };
 		D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleStaticHeightView.swift; sourceTree = "<group>"; };
 		D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleIntrinsicHeightView.swift; sourceTree = "<group>"; };
-		D74C92582208C5DC001FBAB5 /* WSPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WSPopupViewController.swift; path = Source/WSPopupViewController.swift; sourceTree = SOURCE_ROOT; };
+		D79671312209C0540004667C /* WSScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSScrollViewController.swift; sourceTree = "<group>"; };
+		D79671322209C0540004667C /* WSPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSPopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				D74C923B2208AB79001FBAB5 /* Example */,
-				D74C92572208C5CB001FBAB5 /* Source */,
+				D79671302209C0540004667C /* Source */,
 				D74C923A2208AB79001FBAB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,13 +78,13 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
-		D74C92572208C5CB001FBAB5 /* Source */ = {
+		D79671302209C0540004667C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D74C92582208C5DC001FBAB5 /* WSPopupViewController.swift */,
+				D79671312209C0540004667C /* WSScrollViewController.swift */,
+				D79671322209C0540004667C /* WSPopupViewController.swift */,
 			);
-			name = Source;
-			path = "New Group";
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,11 +181,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D74C923F2208AB79001FBAB5 /* ViewController.swift in Sources */,
-				D74C92592208C5DC001FBAB5 /* WSPopupViewController.swift in Sources */,
 				D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */,
 				D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */,
 				D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */,
 				D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */,
+				D79671342209C0540004667C /* WSPopupViewController.swift in Sources */,
+				D79671332209C0540004667C /* WSScrollViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
