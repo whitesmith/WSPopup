@@ -15,10 +15,37 @@
 		D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92502208B649001FBAB5 /* ExampleSignInView.swift */; };
 		D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */; };
 		D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */; };
-		D79671332209C0540004667C /* WSScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671312209C0540004667C /* WSScrollViewController.swift */; };
-		D79671342209C0540004667C /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671322209C0540004667C /* WSPopupViewController.swift */; };
-		D7967136220AE1EA0004667C /* WSPopupActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7967135220AE1E90004667C /* WSPopupActionable.swift */; };
+		D7967140220AEFC00004667C /* WSPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = D796713E220AEFC00004667C /* WSPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7967143220AEFC00004667C /* WSPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D796713C220AEFC00004667C /* WSPopup.framework */; };
+		D7967144220AEFC00004667C /* WSPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D796713C220AEFC00004667C /* WSPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7967149220AEFDD0004667C /* WSScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671312209C0540004667C /* WSScrollViewController.swift */; };
+		D796714A220AEFE00004667C /* WSPopupActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7967135220AE1E90004667C /* WSPopupActionable.swift */; };
+		D796714B220AEFE20004667C /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671322209C0540004667C /* WSPopupViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7967141220AEFC00004667C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74C92312208AB79001FBAB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D796713B220AEFC00004667C;
+			remoteInfo = WSPopup;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D7967148220AEFC00004667C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D7967144220AEFC00004667C /* WSPopup.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D74C92392208AB79001FBAB5 /* WSPopupExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPopupExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,10 +61,21 @@
 		D79671312209C0540004667C /* WSScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSScrollViewController.swift; sourceTree = "<group>"; };
 		D79671322209C0540004667C /* WSPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSPopupViewController.swift; sourceTree = "<group>"; };
 		D7967135220AE1E90004667C /* WSPopupActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSPopupActionable.swift; sourceTree = "<group>"; };
+		D796713C220AEFC00004667C /* WSPopup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WSPopup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D796713E220AEFC00004667C /* WSPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSPopup.h; sourceTree = "<group>"; };
+		D796713F220AEFC00004667C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D74C92362208AB79001FBAB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7967143220AEFC00004667C /* WSPopup.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7967139220AEFC00004667C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,8 +88,9 @@
 		D74C92302208AB79001FBAB5 = {
 			isa = PBXGroup;
 			children = (
-				D74C923B2208AB79001FBAB5 /* Example */,
 				D79671302209C0540004667C /* Source */,
+				D74C923B2208AB79001FBAB5 /* Example */,
+				D796713D220AEFC00004667C /* WSPopup */,
 				D74C923A2208AB79001FBAB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D74C92392208AB79001FBAB5 /* WSPopupExample.app */,
+				D796713C220AEFC00004667C /* WSPopup.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +130,27 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		D796713D220AEFC00004667C /* WSPopup */ = {
+			isa = PBXGroup;
+			children = (
+				D796713E220AEFC00004667C /* WSPopup.h */,
+				D796713F220AEFC00004667C /* Info.plist */,
+			);
+			path = WSPopup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D7967137220AEFC00004667C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7967140220AEFC00004667C /* WSPopup.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		D74C92382208AB79001FBAB5 /* WSPopupExample */ = {
@@ -101,15 +161,35 @@
 				D74C92362208AB79001FBAB5 /* Frameworks */,
 				D74C92372208AB79001FBAB5 /* Resources */,
 				D74C92522208BF52001FBAB5 /* Integrate Reveal Server */,
+				D7967148220AEFC00004667C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D7967142220AEFC00004667C /* PBXTargetDependency */,
 			);
 			name = WSPopupExample;
 			productName = PopupExample;
 			productReference = D74C92392208AB79001FBAB5 /* WSPopupExample.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D796713B220AEFC00004667C /* WSPopup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7967145220AEFC00004667C /* Build configuration list for PBXNativeTarget "WSPopup" */;
+			buildPhases = (
+				D7967137220AEFC00004667C /* Headers */,
+				D7967138220AEFC00004667C /* Sources */,
+				D7967139220AEFC00004667C /* Frameworks */,
+				D796713A220AEFC00004667C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WSPopup;
+			productName = WSPopup;
+			productReference = D796713C220AEFC00004667C /* WSPopup.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -122,6 +202,9 @@
 				ORGANIZATIONNAME = Whitesmith;
 				TargetAttributes = {
 					D74C92382208AB79001FBAB5 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D796713B220AEFC00004667C = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -140,6 +223,7 @@
 			projectRoot = "";
 			targets = (
 				D74C92382208AB79001FBAB5 /* WSPopupExample */,
+				D796713B220AEFC00004667C /* WSPopup */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +236,13 @@
 				D74C92472208AB7C001FBAB5 /* LaunchScreen.storyboard in Resources */,
 				D74C92442208AB7C001FBAB5 /* Assets.xcassets in Resources */,
 				D74C92422208AB79001FBAB5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D796713A220AEFC00004667C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,16 +276,31 @@
 			files = (
 				D74C923F2208AB79001FBAB5 /* ViewController.swift in Sources */,
 				D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */,
-				D7967136220AE1EA0004667C /* WSPopupActionable.swift in Sources */,
 				D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */,
 				D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */,
 				D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */,
-				D79671342209C0540004667C /* WSPopupViewController.swift in Sources */,
-				D79671332209C0540004667C /* WSScrollViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7967138220AEFC00004667C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D796714A220AEFE00004667C /* WSPopupActionable.swift in Sources */,
+				D796714B220AEFE20004667C /* WSPopupViewController.swift in Sources */,
+				D7967149220AEFDD0004667C /* WSScrollViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7967142220AEFC00004667C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D796713B220AEFC00004667C /* WSPopup */;
+			targetProxy = D7967141220AEFC00004667C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D74C92402208AB79001FBAB5 /* Main.storyboard */ = {
@@ -335,6 +441,7 @@
 		D74C924C2208AB7C001FBAB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
@@ -362,6 +469,7 @@
 		D74C924D2208AB7C001FBAB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
@@ -374,6 +482,64 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D7967146220AEFC00004667C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2E58BZR8M3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WSPopup/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.whitesmith.WSPopup;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7967147220AEFC00004667C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2E58BZR8M3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WSPopup/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.whitesmith.WSPopup;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -394,6 +560,15 @@
 			buildConfigurations = (
 				D74C924C2208AB7C001FBAB5 /* Debug */,
 				D74C924D2208AB7C001FBAB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7967145220AEFC00004667C /* Build configuration list for PBXNativeTarget "WSPopup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7967146220AEFC00004667C /* Debug */,
+				D7967147220AEFC00004667C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

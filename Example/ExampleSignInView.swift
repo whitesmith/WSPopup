@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WSPopup
 
 class ExampleSignInView: UIView, WSPopupActionable {
 
