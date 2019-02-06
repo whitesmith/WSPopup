@@ -10,14 +10,20 @@ import UIKit
 
 public class WSPopupViewController: WSScrollViewController {
 
-    private var activeField: UIView?
+    private var activeInput: UIView?
 
-    private let viewType: UIView.Type
+    private let popupViewType: UIView.Type
     private let popupView: UIView
 
-    public init(viewType: UIView.Type) {
-        self.viewType = viewType
-        self.popupView = viewType.init(frame: .null)
+    public init(popupViewType: UIView.Type) {
+        self.popupViewType = popupViewType
+        self.popupView = popupViewType.init(frame: .null)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    public init(popupView: UIView) {
+        self.popupViewType = type(of: popupView)
+        self.popupView = popupView
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,14 +31,13 @@ public class WSPopupViewController: WSScrollViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-    }
-
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         
         scrollView.alwaysBounceVertical = true
+        scrollView.delegate = self
+        scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
 
         popupView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(popupView)
