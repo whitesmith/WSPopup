@@ -8,9 +8,13 @@
 
 import UIKit
 
-class ExampleSignInView: UIView {
+class ExampleSignInView: UIView, WSPopupActionable {
 
-    //weak var delegate:
+    // MARK: WSPopupActionable
+    var popupDismissHandler: (() -> Void)?
+
+    let userTextField = UITextField()
+    let passwordTextField = UITextField()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,10 +42,13 @@ class ExampleSignInView: UIView {
         subtitleLabel.numberOfLines = 0
         stackView.addArrangedSubview(subtitleLabel)
 
-        let userTextField = UITextField()
         userTextField.placeholder = "Username"
-        //userTextField.delegate
+        userTextField.delegate = self
         stackView.addArrangedSubview(userTextField)
+
+        passwordTextField.placeholder = "Password"
+        passwordTextField.delegate = self
+        stackView.addArrangedSubview(passwordTextField)
 
         let doneButton = UIButton(type: .system)
         doneButton.setTitle("Done", for: .normal)
@@ -61,7 +68,21 @@ class ExampleSignInView: UIView {
     }
 
     @objc func doneButtonTapped() {
-        // TODO
+        dismissPopup()
+    }
+
+}
+
+extension ExampleSignInView: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === userTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        else if textField === passwordTextField {
+            userTextField.becomeFirstResponder()
+        }
+        return true
     }
 
 }

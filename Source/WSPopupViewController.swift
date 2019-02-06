@@ -46,24 +46,29 @@ public class WSPopupViewController: WSScrollViewController {
             popupView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).priority(of: .defaultLow),
             popupView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).priority(of: .defaultLow),
         ])
+
+        if var popupActionable = popupView as? WSPopupActionable {
+            popupActionable.popupDismissHandler = { [weak self] in
+                self?.dismissPopup()
+            }
+        }
+        else {
+            print("[WSPopup] PopupView of type '\(popupViewType)' does not conform to protocol 'WSPopupActionable'")
+        }
     }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         registerKeyboardNotifications()
         registerTextFieldNotifications()
+        registerTextViewNotifications()
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         unregisterKeyboardNotifications()
         unregisterTextFieldNotifications()
-    }
-
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        view.endEditing(true)
-        dismiss(animated: true, completion: nil)
+        unregisterTextViewNotifications()
     }
 
     private func registerTextFieldNotifications() {
@@ -94,6 +99,34 @@ public class WSPopupViewController: WSScrollViewController {
         )
     }
 
+    private func registerTextViewNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.textDidBeginEditing(_:)),
+            name: UITextView.textDidBeginEditingNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.textDidEndEditing(_:)),
+            name: UITextView.textDidEndEditingNotification,
+            object: nil
+        )
+    }
+
+    private func unregisterTextViewNotifications() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UITextView.textDidBeginEditingNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UITextView.textDidEndEditingNotification,
+            object: nil
+        )
+    }
+
     private func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(
             self,
@@ -105,12 +138,6 @@ public class WSPopupViewController: WSScrollViewController {
             self,
             selector: #selector(self.keyboardWillHide(_:)),
             name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillChangeFrame(_:)),
-            name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil
         )
     }
@@ -126,32 +153,34 @@ public class WSPopupViewController: WSScrollViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil
-        )
+    }
+
+    @objc public func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    @objc public func dismissPopup() {
+        dismissKeyboard()
+        dismiss(animated: true, completion: nil)
     }
 
     @objc private func textDidBeginEditing(_ sender: Notification) {
-        activeField = sender.object as? UITextField
-        print("textDidBeginEditing:", activeField ?? "nil")
+        activeInput = sender.object as? UIView
     }
 
     @objc private func textDidEndEditing(_ sender: Notification) {
-        activeField = nil
-        print("textDidEndEditing:", activeField ?? "nil")
+        activeInput = nil
     }
 
     @objc private func keyboardWillShow(_ sender: Notification) {
-        print("keyboardWillShow:")
-        guard let activeField = activeField else {
+        guard let activeField = activeInput else {
             return
         }
         guard let value = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
 
+        // Reference: https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW7
         let keyboardSize = value.cgRectValue.size
         let contentInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
         scrollView.contentInset = contentInsets
@@ -166,19 +195,25 @@ public class WSPopupViewController: WSScrollViewController {
     }
 
     @objc private func keyboardWillHide(_ sender: Notification) {
-        print("keyboardWillHide:")
         let contentInsets: UIEdgeInsets = .zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
 
-    @objc private func keyboardWillChangeFrame(_ sender: Notification) {
-        print("keyboardWillChangeFrame:")
+}
+
+extension WSPopupViewController: UIScrollViewDelegate {
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    }
+
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //TODO: dismiss popup on slide down (scrollView.contentOffset.y)
     }
 
 }
 
-extension NSLayoutConstraint {
+private extension NSLayoutConstraint {
 
     func priority(of value: UILayoutPriority) -> NSLayoutConstraint {
         self.priority = value

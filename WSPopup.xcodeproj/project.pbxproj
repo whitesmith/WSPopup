@@ -17,6 +17,7 @@
 		D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */; };
 		D79671332209C0540004667C /* WSScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671312209C0540004667C /* WSScrollViewController.swift */; };
 		D79671342209C0540004667C /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671322209C0540004667C /* WSPopupViewController.swift */; };
+		D7967136220AE1EA0004667C /* WSPopupActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7967135220AE1E90004667C /* WSPopupActionable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleIntrinsicHeightView.swift; sourceTree = "<group>"; };
 		D79671312209C0540004667C /* WSScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSScrollViewController.swift; sourceTree = "<group>"; };
 		D79671322209C0540004667C /* WSPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSPopupViewController.swift; sourceTree = "<group>"; };
+		D7967135220AE1E90004667C /* WSPopupActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSPopupActionable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				D79671312209C0540004667C /* WSScrollViewController.swift */,
+				D7967135220AE1E90004667C /* WSPopupActionable.swift */,
 				D79671322209C0540004667C /* WSPopupViewController.swift */,
 			);
 			path = Source;
@@ -182,6 +185,7 @@
 			files = (
 				D74C923F2208AB79001FBAB5 /* ViewController.swift in Sources */,
 				D74C92512208B649001FBAB5 /* ExampleSignInView.swift in Sources */,
+				D7967136220AE1EA0004667C /* WSPopupActionable.swift in Sources */,
 				D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */,
 				D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */,
 				D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */,
