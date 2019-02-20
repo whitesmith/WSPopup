@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     @objc func showtimeTapped(_ sender: Any) {
         exampleSignInView.userTextField.text = "JohnDoe123"
         //let popupViewController = WSPopupViewController(popupViewType: ExampleSignInView.self)
+        //popupViewController.dimissPopupOnSlideDownGesture = true
         popupViewController.modalPresentationStyle = .overCurrentContext
         popupViewController.modalTransitionStyle = .crossDissolve
         show(popupViewController, sender: self)

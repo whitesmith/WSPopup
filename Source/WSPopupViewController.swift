@@ -15,6 +15,8 @@ public class WSPopupViewController: WSScrollViewController {
     private let popupViewType: UIView.Type
     private let popupView: UIView
 
+    public var dimissPopupOnSlideDownGesture: Bool = true
+
     public init(popupViewType: UIView.Type) {
         self.popupViewType = popupViewType
         self.popupView = popupViewType.init(frame: .null)
@@ -240,7 +242,8 @@ public class WSPopupViewController: WSScrollViewController {
 extension WSPopupViewController: UIScrollViewDelegate {
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y < 0 && scrollView.panGestureRecognizer.velocity(in: popupView).y > 160 {
+        if dimissPopupOnSlideDownGesture &&
+            scrollView.contentOffset.y < 0 && scrollView.panGestureRecognizer.velocity(in: popupView).y > 300 {
             dismissPopupWithSlideDownAnimation()
         }
     }
