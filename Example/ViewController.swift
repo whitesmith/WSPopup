@@ -18,6 +18,9 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var exampleSignInView = ExampleSignInView()
+    lazy var popupViewController = WSPopupViewController(popupView: exampleSignInView)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -31,9 +34,7 @@ class ViewController: UIViewController {
     }
 
     @objc func showtimeTapped(_ sender: Any) {
-        let exampleSignInView = ExampleSignInView()
         exampleSignInView.userTextField.text = "JohnDoe123"
-        let popupViewController = WSPopupViewController(popupView: exampleSignInView)
         //let popupViewController = WSPopupViewController(popupViewType: ExampleSignInView.self)
         popupViewController.modalPresentationStyle = .overCurrentContext
         popupViewController.modalTransitionStyle = .crossDissolve

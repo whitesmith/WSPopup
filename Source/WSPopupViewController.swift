@@ -31,11 +31,14 @@ public class WSPopupViewController: WSScrollViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        //print("Deinitialized")
+    }
+
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-
         scrollView.alwaysBounceVertical = true
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.keyboardDismissMode = .interactive
         scrollView.delegate = self
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
@@ -61,6 +64,11 @@ public class WSPopupViewController: WSScrollViewController {
         else {
             print("[WSPopup] PopupView of type '\(popupViewType)' does not conform to protocol 'WSPopupActionable'")
         }
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        restoreAnimatedProperties()
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -161,6 +169,12 @@ public class WSPopupViewController: WSScrollViewController {
         )
     }
 
+    private func restoreAnimatedProperties() {
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        popupView.alpha = 1
+        scrollView.contentInset.top = 0
+    }
+
     @objc public func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -168,6 +182,21 @@ public class WSPopupViewController: WSScrollViewController {
     @objc public func dismissPopup() {
         dismissKeyboard()
         dismiss(animated: true, completion: nil)
+    }
+
+    @objc public func dismissPopupWithSlideDownAnimation(dismissKeyboardManually: Bool = false) {
+        if dismissKeyboardManually {
+            dismissKeyboard()
+        }
+        UIView.animate(
+            withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveLinear, animations: { () -> Void in
+                self.view.backgroundColor = .clear
+                self.popupView.alpha = 0
+                self.scrollView.contentInset.top = 2000 //hide
+                self.scrollView.contentOffset.y = 2000 //hide
+        }, completion: { isFinished in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
 
     @objc private func textDidBeginEditing(_ sender: Notification) {
@@ -210,11 +239,10 @@ public class WSPopupViewController: WSScrollViewController {
 
 extension WSPopupViewController: UIScrollViewDelegate {
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    }
-
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        //TODO: dismiss popup on slide down (scrollView.contentOffset.y)
+        if scrollView.contentOffset.y < 0 && scrollView.panGestureRecognizer.velocity(in: popupView).y > 160 {
+            dismissPopupWithSlideDownAnimation()
+        }
     }
 
 }
