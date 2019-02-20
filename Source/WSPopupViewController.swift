@@ -33,8 +33,8 @@ public class WSPopupViewController: WSScrollViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-        
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+
         scrollView.alwaysBounceVertical = true
         scrollView.keyboardDismissMode = .interactive
         scrollView.delegate = self
