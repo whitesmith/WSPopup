@@ -46,6 +46,7 @@ public class WSPopupViewController: WSScrollViewController {
         scrollView.delegate = self
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleScrollViewTapGesture)))
 
+        popupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
         popupView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(popupView)
 
