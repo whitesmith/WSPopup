@@ -36,6 +36,7 @@ public class WSPopupViewController: WSScrollViewController {
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         
         scrollView.alwaysBounceVertical = true
+        scrollView.keyboardDismissMode = .interactive
         scrollView.delegate = self
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
 
