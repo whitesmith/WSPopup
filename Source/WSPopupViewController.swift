@@ -11,6 +11,7 @@ import UIKit
 public class WSPopupViewController: WSScrollViewController {
 
     private var activeInput: UIView?
+    private var isKeyboardVisible: Bool = false
 
     private let popupViewType: UIView.Type
     private let popupView: UIView
@@ -43,7 +44,7 @@ public class WSPopupViewController: WSScrollViewController {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.keyboardDismissMode = .interactive
         scrollView.delegate = self
-        scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
+        scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleScrollViewTapGesture)))
 
         popupView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(popupView)
@@ -156,6 +157,18 @@ public class WSPopupViewController: WSScrollViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardDidShow(_:)),
+            name: UIResponder.keyboardDidShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardDidHide(_:)),
+            name: UIResponder.keyboardDidHideNotification,
+            object: nil
+        )
     }
 
     private func unregisterKeyboardNotifications() {
@@ -167,6 +180,16 @@ public class WSPopupViewController: WSScrollViewController {
         NotificationCenter.default.removeObserver(
             self,
             name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardDidShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardDidHideNotification,
             object: nil
         )
     }
@@ -186,10 +209,9 @@ public class WSPopupViewController: WSScrollViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc public func dismissPopupWithSlideDownAnimation(dismissKeyboardManually: Bool = false) {
-        if dismissKeyboardManually {
-            dismissKeyboard()
-        }
+    @objc public func dismissPopupWithSlideDownAnimation() {
+        dismissKeyboard()
+        
         UIView.animate(
             withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveLinear, animations: { () -> Void in
                 self.view.backgroundColor = .clear
@@ -199,6 +221,15 @@ public class WSPopupViewController: WSScrollViewController {
         }, completion: { isFinished in
             self.dismiss(animated: true, completion: nil)
         })
+    }
+
+    @objc public func handleScrollViewTapGesture() {
+        if isKeyboardVisible {
+            dismissKeyboard()
+        }
+        else {
+            dismissPopup()
+        }
     }
 
     @objc private func textDidBeginEditing(_ sender: Notification) {
@@ -231,10 +262,18 @@ public class WSPopupViewController: WSScrollViewController {
         }
     }
 
+    @objc private func keyboardDidShow(_ sender: Notification) {
+        isKeyboardVisible = true
+    }
+
     @objc private func keyboardWillHide(_ sender: Notification) {
         let contentInsets: UIEdgeInsets = .zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
+    }
+
+    @objc private func keyboardDidHide(_ sender: Notification) {
+        isKeyboardVisible = false
     }
 
 }
