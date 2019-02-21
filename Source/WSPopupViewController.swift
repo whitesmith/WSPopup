@@ -198,7 +198,7 @@ public class WSPopupViewController: WSScrollViewController {
     private func restoreAnimatedProperties() {
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         popupView.alpha = 1
-        scrollView.contentInset.top = 0
+        scrollView.contentInset = .zero
     }
 
     @objc public func dismissKeyboard() {
@@ -212,15 +212,14 @@ public class WSPopupViewController: WSScrollViewController {
 
     @objc public func dismissPopupWithSlideDownAnimation() {
         dismissKeyboard()
-        
+
         UIView.animate(
             withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .curveLinear, animations: { () -> Void in
                 self.view.backgroundColor = .clear
                 self.popupView.alpha = 0
-                self.scrollView.contentInset.top = 2000 //hide
-                self.scrollView.contentOffset.y = 2000 //hide
+                self.scrollView.contentInset.top = UIScreen.main.bounds.height
         }, completion: { isFinished in
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         })
     }
 
