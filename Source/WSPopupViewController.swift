@@ -196,7 +196,7 @@ public class WSPopupViewController: WSScrollViewController {
     }
 
     private func restoreAnimatedProperties() {
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         popupView.alpha = 1
         scrollView.contentInset = .zero
     }
