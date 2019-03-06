@@ -17,6 +17,7 @@ public class WSPopupViewController: WSScrollViewController {
     private let popupView: UIView
 
     public var dimissPopupOnSlideDownGesture: Bool = true
+    public var dimissPopupOnTapGesture: Bool = true
 
     public init(popupViewType: UIView.Type) {
         self.popupViewType = popupViewType
@@ -227,7 +228,7 @@ public class WSPopupViewController: WSScrollViewController {
         if isKeyboardVisible {
             dismissKeyboard()
         }
-        else {
+        else if dimissPopupOnTapGesture {
             dismissPopup()
         }
     }
