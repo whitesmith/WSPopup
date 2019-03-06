@@ -61,8 +61,8 @@ public class WSPopupViewController: WSScrollViewController {
         ])
 
         if var popupActionable = popupView as? WSPopupActionable {
-            popupActionable.popupDismissHandler = { [weak self] in
-                self?.dismissPopup()
+            popupActionable.popupDismissHandler = { [weak self] completion in
+                self?.dismissPopup(completion: completion)
             }
         }
         else {
@@ -205,9 +205,9 @@ public class WSPopupViewController: WSScrollViewController {
         view.endEditing(true)
     }
 
-    @objc public func dismissPopup() {
+    @objc public func dismissPopup(completion: (() -> Void)? = nil) {
         dismissKeyboard()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: completion)
     }
 
     @objc public func dismissPopupWithSlideDownAnimation() {

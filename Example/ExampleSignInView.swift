@@ -12,7 +12,7 @@ import WSPopup
 class ExampleSignInView: UIView, WSPopupActionable {
 
     // MARK: WSPopupActionable
-    var popupDismissHandler: (() -> Void)?
+    var popupDismissHandler: ((WSPopupActionCompletion?) -> Void)?
 
     let userTextField = UITextField()
     let passwordTextField = UITextField()
@@ -69,7 +69,9 @@ class ExampleSignInView: UIView, WSPopupActionable {
     }
 
     @objc func doneButtonTapped() {
-        dismissPopup()
+        dismissPopup(completion: {
+            print("Dismissed")
+        })
     }
 
 }

@@ -8,15 +8,17 @@
 
 import Foundation
 
+public typealias WSPopupActionCompletion = () -> Void
+
 public protocol WSPopupActionable {
-    var popupDismissHandler: (() -> Void)? { get set }
-    func dismissPopup()
+    var popupDismissHandler: ((WSPopupActionCompletion?) -> Void)? { get set }
+    func dismissPopup(completion: (() -> Void)?)
 }
 
 public extension WSPopupActionable {
 
-    public func dismissPopup() {
-        popupDismissHandler?()
+    public func dismissPopup(completion: (() -> Void)? = nil) {
+        popupDismissHandler?(completion)
     }
     
 }
