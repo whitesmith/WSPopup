@@ -17,7 +17,7 @@ public protocol WSPopupActionable {
 
 public extension WSPopupActionable {
 
-    public func dismissPopup(completion: (() -> Void)? = nil) {
+    func dismissPopup(completion: (() -> Void)? = nil) {
         popupDismissHandler?(completion)
     }
     
