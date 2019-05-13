@@ -1,7 +1,7 @@
 # WSPopup
 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
-[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 5.0](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](http://www.apple.com/ios/)
 [![License MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)](https://opensource.org/licenses/MIT)
 
@@ -61,7 +61,7 @@ Download all the source files and drop them into your project.
 ## Requirements
 
 * iOS 11.0+
-* Xcode 10 (Swift 4.2)
+* Xcode 10.2 (Swift 5.0)
 
 # Contributing
 
