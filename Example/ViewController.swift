@@ -11,9 +11,16 @@ import WSPopup
 
 class ViewController: UIViewController {
 
-    lazy var showtimeButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Showtime", for: .normal)
+        button.setTitle("Example Login", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    lazy var tableViewButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Example Table View", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -24,24 +31,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(showtimeButton)
-        showtimeButton.addTarget(self, action: #selector(self.showtimeTapped), for: .touchUpInside)
+        view.addSubview(loginButton)
+        view.addSubview(tableViewButton)
+        loginButton.addTarget(self, action: #selector(self.loginButtonTapped), for: .touchUpInside)
+        tableViewButton.addTarget(self, action: #selector(self.tableViewButtonTapped), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
-            showtimeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            showtimeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+        ])
+        NSLayoutConstraint.activate([
+            tableViewButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tableViewButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
         ])
     }
 
-    @objc func showtimeTapped(_ sender: Any) {
+    @objc func loginButtonTapped(_ sender: Any) {
         exampleSignInView.userTextField.text = "JohnDoe123"
         //let popupViewController = WSPopupViewController(popupViewType: ExampleSignInView.self)
-        //popupViewController.dimissPopupOnSlideDownGesture = true
+        popupViewController.dimissPopupOnSlideDownGesture = false
+        popupViewController.dimissPopupOnTapGesture = false
         popupViewController.modalPresentationStyle = .overCurrentContext
         popupViewController.modalTransitionStyle = .crossDissolve
         show(popupViewController, sender: self)
+    }
 
-        //show(ExampleSignInViewController(), sender: self)
+    @objc func tableViewButtonTapped(_ sender: Any) {
+        show(ExampleSignInViewController(), sender: self)
     }
 
 }

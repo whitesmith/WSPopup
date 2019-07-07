@@ -16,8 +16,20 @@ open class WSPopupViewController: WSScrollViewController {
     private let popupViewType: UIView.Type
     private let popupView: UIView
 
+    private let popupViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(WSPopupViewController.dismissKeyboard))
+
     public var dimissPopupOnSlideDownGesture: Bool = true
     public var dimissPopupOnTapGesture: Bool = true
+
+    public var cancelsTouchesInView: Bool {
+        get {
+            return scrollView.isScrollEnabled
+        }
+        set {
+            popupViewTapGesture.cancelsTouchesInView = newValue
+            scrollView.isScrollEnabled = newValue
+        }
+    }
 
     public init(popupViewType: UIView.Type) {
         self.popupViewType = popupViewType
@@ -47,7 +59,7 @@ open class WSPopupViewController: WSScrollViewController {
         scrollView.delegate = self
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleScrollViewTapGesture)))
 
-        popupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
+        popupView.addGestureRecognizer(popupViewTapGesture)
         popupView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(popupView)
 
@@ -65,9 +77,6 @@ open class WSPopupViewController: WSScrollViewController {
             popupActionable.popupDismissHandler = { [weak self] completion in
                 self?.dismissPopup(completion: completion)
             }
-        }
-        else {
-            print("[WSPopup] PopupView of type '\(popupViewType)' does not conform to protocol 'WSPopupActionable'")
         }
     }
 
