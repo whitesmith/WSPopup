@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class WSScrollViewController: UIViewController {
+open class WSScrollViewController: UIViewController {
 
     public lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -16,7 +16,7 @@ public class WSScrollViewController: UIViewController {
         return scrollView
     }()
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([

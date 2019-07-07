@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class WSPopupViewController: WSScrollViewController {
+open class WSPopupViewController: WSScrollViewController {
 
     private var activeInput: UIView?
     private var isKeyboardVisible: Bool = false
@@ -39,7 +39,7 @@ public class WSPopupViewController: WSScrollViewController {
         //print("Deinitialized")
     }
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = false
@@ -71,19 +71,19 @@ public class WSPopupViewController: WSScrollViewController {
         }
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         restoreAnimatedProperties()
     }
 
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         registerKeyboardNotifications()
         registerTextFieldNotifications()
         registerTextViewNotifications()
     }
 
-    public override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         unregisterKeyboardNotifications()
         unregisterTextFieldNotifications()
