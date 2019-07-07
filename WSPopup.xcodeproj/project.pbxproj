@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D719677A22D272DF0084B19F /* ExampleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719677922D272DF0084B19F /* ExampleSignInViewController.swift */; };
 		D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C923C2208AB79001FBAB5 /* AppDelegate.swift */; };
 		D74C923F2208AB79001FBAB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C923E2208AB79001FBAB5 /* ViewController.swift */; };
 		D74C92442208AB7C001FBAB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74C92432208AB7C001FBAB5 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D719677922D272DF0084B19F /* ExampleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSignInViewController.swift; sourceTree = "<group>"; };
 		D74C92392208AB79001FBAB5 /* WSPopupExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPopupExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74C923C2208AB79001FBAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74C923E2208AB79001FBAB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				D74C92502208B649001FBAB5 /* ExampleSignInView.swift */,
 				D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */,
 				D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */,
+				D719677922D272DF0084B19F /* ExampleSignInViewController.swift */,
 				D74C92432208AB7C001FBAB5 /* Assets.xcassets */,
 				D74C92482208AB7C001FBAB5 /* Info.plist */,
 			);
@@ -273,6 +276,7 @@
 				D74C923D2208AB79001FBAB5 /* AppDelegate.swift in Sources */,
 				D74C92562208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift in Sources */,
 				D74C92542208C171001FBAB5 /* ExampleStaticHeightView.swift in Sources */,
+				D719677A22D272DF0084B19F /* ExampleSignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

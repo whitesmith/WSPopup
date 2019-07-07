@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         popupViewController.modalPresentationStyle = .overCurrentContext
         popupViewController.modalTransitionStyle = .crossDissolve
         show(popupViewController, sender: self)
+
+        //show(ExampleSignInViewController(), sender: self)
     }
 
 }
