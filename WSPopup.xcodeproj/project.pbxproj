@@ -20,6 +20,7 @@
 		D7967149220AEFDD0004667C /* WSScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671312209C0540004667C /* WSScrollViewController.swift */; };
 		D796714A220AEFE00004667C /* WSPopupActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7967135220AE1E90004667C /* WSPopupActionable.swift */; };
 		D796714B220AEFE20004667C /* WSPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79671322209C0540004667C /* WSPopupViewController.swift */; };
+		D7F75AA02333EF7E00388A16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F75A9F2333EF7E00388A16 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D796713C220AEFC00004667C /* WSPopup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WSPopup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D796713E220AEFC00004667C /* WSPopup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSPopup.h; sourceTree = "<group>"; };
 		D796713F220AEFC00004667C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7F75A9F2333EF7E00388A16 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				D74C92532208C171001FBAB5 /* ExampleStaticHeightView.swift */,
 				D74C92552208C19A001FBAB5 /* ExampleIntrinsicHeightView.swift */,
 				D719677922D272DF0084B19F /* ExampleSignInViewController.swift */,
+				D7F75A9F2333EF7E00388A16 /* LaunchScreen.storyboard */,
 				D74C92432208AB7C001FBAB5 /* Assets.xcassets */,
 				D74C92482208AB7C001FBAB5 /* Info.plist */,
 			);
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D74C92442208AB7C001FBAB5 /* Assets.xcassets in Resources */,
+				D7F75AA02333EF7E00388A16 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +428,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -454,7 +457,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E58BZR8M3;
 				INFOPLIST_FILE = Example/Info.plist;
