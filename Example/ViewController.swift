@@ -25,6 +25,13 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var modalLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Modal Login", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     lazy var exampleSignInView = ExampleSignInView()
     lazy var popupViewController = WSPopupViewController(popupView: exampleSignInView)
 
@@ -33,8 +40,10 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(loginButton)
         view.addSubview(tableViewButton)
+        view.addSubview(modalLoginButton)
         loginButton.addTarget(self, action: #selector(self.loginButtonTapped), for: .touchUpInside)
         tableViewButton.addTarget(self, action: #selector(self.tableViewButtonTapped), for: .touchUpInside)
+        modalLoginButton.addTarget(self, action: #selector(self.modalLoginButtonTapped), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -44,11 +53,15 @@ class ViewController: UIViewController {
             tableViewButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tableViewButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
         ])
+        NSLayoutConstraint.activate([
+            modalLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            modalLoginButton.topAnchor.constraint(equalTo: tableViewButton.bottomAnchor, constant: 10),
+        ])
     }
 
     @objc func loginButtonTapped(_ sender: Any) {
         exampleSignInView.userTextField.text = "JohnDoe123"
-        //let popupViewController = WSPopupViewController(popupViewType: ExampleSignInView.self)
+
         popupViewController.dimissPopupOnSlideDownGesture = false
         popupViewController.dimissPopupOnTapGesture = false
         popupViewController.modalPresentationStyle = .overCurrentContext
@@ -58,6 +71,20 @@ class ViewController: UIViewController {
 
     @objc func tableViewButtonTapped(_ sender: Any) {
         show(ExampleSignInViewController(), sender: self)
+    }
+
+    @objc func modalLoginButtonTapped() {
+        let popupViewController = WSPopupViewController(popupViewType: ExampleSignInView.self)
+        popupViewController.dimissPopupOnSlideDownGesture = true
+        popupViewController.dimissPopupOnTapGesture = false
+        if #available(iOS 13, *) {
+            popupViewController.modalPresentationStyle = .overFullScreen
+        }
+        else {
+            popupViewController.modalPresentationStyle = .overCurrentContext
+        }
+        popupViewController.modalTransitionStyle = .crossDissolve
+        present(popupViewController, animated: true, completion: nil)
     }
 
 }
