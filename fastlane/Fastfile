@@ -1,0 +1,22 @@
+fastlane_version "1.100.0"
+REQUIRED_XCODE_VERSION = "12.0"
+default_platform :ios
+
+platform :ios do
+  desc "Runs all the tests"
+  lane :test do
+    scan project: "WSPopup.xcodeproj"
+  end
+
+  desc "Increment the verion and build number"
+  lane :version_bump_project do |options|
+    increment_build_number
+    increment_version_number bump_type: options[:bump_type]
+  end
+
+  desc "Prepare a new Release version"
+  lane :release do |options|
+    version_bump_project bump_type: options[:bump]
+    version_bump_podspec bump_type: options[:bump]
+  end
+end
