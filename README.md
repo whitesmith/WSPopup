@@ -55,6 +55,24 @@ Follow the current instructions in [Carthage's README][carthage-installation] fo
 
 [carthage-installation]: https://github.com/Carthage/Carthage#adding-frameworks-to-an-application
 
+#### <img src="https://raw.githubusercontent.com/ricardopereira/resources/master/img/cocoapods.png" width="24" height="24"> [CocoaPods]
+
+[CocoaPods]: http://cocoapods.org
+
+To install it, simply add the following line to your **Podfile**:
+
+```ruby
+pod 'WSPopup'
+```
+
+You will also need to make sure you're opting into using frameworks:
+
+```ruby
+use_frameworks!
+```
+
+Then run `pod install` with CocoaPods 1.0 or newer.
+
 #### Manually
 
 Download all the source files and drop them into your project.
